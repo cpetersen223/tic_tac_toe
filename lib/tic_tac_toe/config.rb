@@ -1,4 +1,4 @@
-require 'tic_tac_toe/app'
+require 'tic_tac_toe'
 
 module Config
   class Player < ::TicTacToe::App

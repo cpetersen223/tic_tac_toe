@@ -1,15 +1,13 @@
+require 'helpers/string'
 require 'tic_tac_toe/version'
-require 'tic_tac_toe/player'
-require 'tic_tac_toe/modules/texts'
-require 'tic_tac_toe/modules/string'
+require 'tic_tac_toe/messages/texts'
+autoload :Players, 'tic_tac_toe/players'
 autoload :Board, 'tic_tac_toe/board'
-autoload :Config, 'tic_tac_toe/modules/config'
-autoload :Game, 'tic_tac_toe/modules/game'
+autoload :Config, 'tic_tac_toe/config'
+autoload :Game, 'tic_tac_toe/game'
 
 module TicTacToe
-  #
-  # class Error < StandardError; end
-  #
+  class Error < StandardError; end
   class App
     include Texts
     attr_accessor :number_of_players, :config, :player_one, :player_two
@@ -54,9 +52,6 @@ module TicTacToe
       @board.draw_legend
       @board.draw_boxes
       # Todo: Turns, play
-      # @turn = Game::Turn.new()
-      # @play = Game::Play.new @board
-      #
     end
 
     def create_game_flow
