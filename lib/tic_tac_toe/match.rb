@@ -3,6 +3,9 @@ autoload :Config, 'tic_tac_toe/config'
 autoload :Players, 'tic_tac_toe/players'
 autoload :Game, 'tic_tac_toe/game'
 
+##
+# This class initiate and leads a TicTacToe match.
+# #
 class Match
   TOKENS          = %w{ X O % & # }.freeze
   RESTART_OPTS    = %{ R r }.freeze
@@ -90,13 +93,28 @@ class Match
   end
 
   def set_player_one
+    @config.player_one = new_player_kind(:one) if player_kind?(:one)
     @config.player_one.name   = @quiz.player_name :one
     @config.player_one.token  = @quiz.player_token :one, @tokens
   end
 
   def set_player_two
+    @config.player_one = new_player_kind(:two) if player_kind?(:two)
     @config.player_two.name   = @quiz.player_name :two
     @config.player_two.token  = @quiz.player_token :two, available_tokens
+  end
+
+  def player_kind?(player_number)
+    kind = @quiz.player_kind player_number
+    @new_kind = %w{ H h }.include?(kind) ? :human : :bot
+    player = @config.send("player_#{player_number}")
+    @new_kind != player.kind
+  end
+
+  def new_player_kind(player_number)
+    new_kind = Kernel.const_get("Players::#{@new_kind.to_s.capitalize}")
+    new_config = Kernel.const_get("Config::DEFAULT_PLAYER_#{player_number.upcase}_ATTRS")
+    new_kind.new(new_config)
   end
 
   def available_tokens

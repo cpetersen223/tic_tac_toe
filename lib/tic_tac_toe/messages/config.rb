@@ -4,6 +4,7 @@ module Messages
   class Config < Message
     INITIAL         = 'Do you want to set up the game? [Y/n]'.freeze
     PLAYERS_NUMBER  = 'How many players wants to play? [1/2]'.freeze
+    PLAYER_KIND     = ->(player) { "Which kind of player #{player} wants? Human[H/h]/Bot[B/b]" }.freeze
     PLAYER_NAME     = ->(player) { "Enter the name of the player #{player}" }.freeze
     PLAYER_TOKEN    = ->(player, tokens) { "Which token wants to use the player #{player}? #{tokens}" }.freeze
     WHO_STARTS      = ->(player1, player2) { "Pick the player who is going to start: #{player1} [1] or #{player2} [2]" }.freeze
@@ -15,6 +16,12 @@ module Messages
 
     def continue?
       ['Y', 'y', ''].include? @input
+    end
+
+    def player_kind(player)
+      @player = player
+      @question, @options = PLAYER_KIND.(player), %w{ H h B b }
+      ask { ask_again :player_kind, [@player] }
     end
 
     def players_number

@@ -11,7 +11,7 @@ module Game
     end
 
     def move
-      if @player.type == :human
+      if @player.kind == :human
         play = Messages::Play.new @player, @plays
         @value  = play.input
       else

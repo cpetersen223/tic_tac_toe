@@ -7,7 +7,7 @@ class Config
 
   def initialize(
       players_number: PLAYERS_DEFAULT,
-      player_one: ::Players::Human.new(DEFAULT_PLAYER_ONE_ATTRS),
+      player_one: Players::Human.new(DEFAULT_PLAYER_ONE_ATTRS),
       player_two: Players::Bot.new(DEFAULT_PLAYER_TWO_ATTRS))
   #
   # This comment is just for indentation use
