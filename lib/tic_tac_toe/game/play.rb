@@ -15,6 +15,7 @@ module Game
         play = Messages::Play.new @player, @plays
         @value  = play.input
       else
+        # Todo: Make the bot intelligent with the win algorithm logic
         @value = @plays.sample
       end
     end

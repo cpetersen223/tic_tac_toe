@@ -22,7 +22,7 @@ module Game
 
     def check_winner
       @win    = Win.new @boxes
-      @winner = @win.winner?
+      @winner = @win.winner? # So creative!
     end
 
     def draw_legend

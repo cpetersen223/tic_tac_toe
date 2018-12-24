@@ -1,3 +1,6 @@
+##
+# This class sets the defaults values for the game
+# #
 class Config
   DEFAULT_PLAYER_ONE_ATTRS  = { name: 'Player One', token: 'X' }.freeze
   DEFAULT_PLAYER_TWO_ATTRS  = { name: 'Bad Robot', token: 'O' }.freeze

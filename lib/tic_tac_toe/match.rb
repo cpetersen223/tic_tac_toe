@@ -124,4 +124,6 @@ class Match
   def set_player_two_token
     @config.player_two.token = available_tokens.sample
   end
+
+  # Todo: Needs to abstract the configuration logic a little bit more from this class
 end

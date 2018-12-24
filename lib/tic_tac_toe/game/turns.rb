@@ -1,4 +1,8 @@
 module Game
+  ##
+  # Class that delivers an array of turns that defines one match.
+  # 9 turns tops to finish the game
+  # #
   class Turns
     attr_accessor :turns
 
