@@ -1,7 +1,5 @@
-require 'tic_tac_toe/app'
-
 module Game
-  class Turns < ::TicTacToe::App
+  class Turns
     attr_accessor :turns
 
     def initialize(player1, player2)
