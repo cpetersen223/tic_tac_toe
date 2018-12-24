@@ -1,6 +1,7 @@
 module Players
   class Player
-    attr_reader :token, :name, :starts, :type
+    attr_accessor :token, :name, :starts
+    attr_reader :type
 
     def initialize(token:, name:, starts: false)
       @token  = token
@@ -8,12 +9,10 @@ module Players
       @starts = starts
     end
 
-    def starts?
-      @starts
-    end
-
     def to_s
       @type
     end
+
+    alias starts? starts
   end
 end

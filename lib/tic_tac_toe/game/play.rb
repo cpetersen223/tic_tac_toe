@@ -1,36 +1,22 @@
-require 'tic_tac_toe/app'
+require 'tic_tac_toe/messages/play'
 
 module Game
-  class Play < ::TicTacToe::App
-    attr_accessor :coordinate, :player
+  class Play
+    attr_reader :value, :player
 
-    def initialize(board, player)
-      @board = board
+    def initialize(plays:, player:)
+      @plays  = plays
       @player = player
-      get_play
+      move
     end
 
-    private
-
-    def get_play
-      ask_player_for_play
-      self.coordinate = get_input
-      if invalid_input || bad_play
-        wrong_play; get_play
+    def move
+      if @player.type == :human
+        play = Messages::Play.new @player, @plays
+        @value  = play.input
+      else
+        @value = @plays.sample
       end
     end
-
-    def valid_input?
-      self.coordinate.to_i > 0
-    end
-
-    def invalid_input; !valid_input?; end
-
-    def well_play?
-      coordinate = self.coordinate.to_i - 1
-      @board.validate coordinate
-    end
-
-    def bad_play; !well_play?; end
   end
 end

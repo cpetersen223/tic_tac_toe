@@ -2,10 +2,10 @@ require_relative 'message'
 
 module Messages
   class Greeting < Message
-    MESSAGE = 'Welcome to TIC TAC TOE on Ruby'.freeze
+    GREET = 'Welcome to TIC-TAC-TOE on Ruby. Press ENTER to continue.'.freeze
 
     def initialize
-      @message = MESSAGE
+      @question = GREET
       ask
     end
   end
