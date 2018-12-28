@@ -30,6 +30,13 @@ Or install it yourself as:
     $ bundle exec exe/tic_tac_toe
 ```
 
+## Docker usage
+``` sh
+    $ bin/setup
+    $ docker build -t tic-tac-toe .
+    $ docker run --name tic-tac-toe -it tic-tac-toe
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

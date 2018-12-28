@@ -2,7 +2,7 @@ require_relative 'message'
 
 module Messages
   class Config < Message
-    INITIAL         = 'Do you want to set up the game? [Y/n]'.freeze
+    INITIAL         = 'Do you want to edit the game configuration? [Y/n]'.freeze
     PLAYERS_NUMBER  = 'How many players wants to play? [1/2]'.freeze
     PLAYER_KIND     = ->(player) { "Which kind of player #{player} wants? Human[H/h]/Bot[B/b]" }.freeze
     PLAYER_NAME     = ->(player) { "Enter the name of the player #{player}" }.freeze

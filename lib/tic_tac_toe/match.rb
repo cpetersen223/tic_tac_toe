@@ -99,7 +99,7 @@ class Match
   end
 
   def set_player_two
-    @config.player_one = new_player_kind(:two) if player_kind?(:two)
+    @config.player_two = new_player_kind(:two) if player_kind?(:two)
     @config.player_two.name   = @quiz.player_name :two
     @config.player_two.token  = @quiz.player_token :two, available_tokens
   end

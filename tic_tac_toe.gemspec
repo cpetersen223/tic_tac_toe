@@ -1,13 +1,13 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "tic_tac_toe/version"
+require_relative 'lib/tic_tac_toe/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "tic_tac_toe"
   spec.version       = TicTacToe::VERSION
   spec.authors       = ["Christian Petersen"]
-  spec.email         = ["christianpetersen@devtohack.com"]
+  spec.email         = ["christianpetersen.ve@gmail.com"]
 
   spec.summary       = %q{TicTacToe in Ruby}
   spec.description   = %q{TicTacToe in Ruby because is fun}
@@ -36,7 +36,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 2.0.a"
+  spec.add_development_dependency "bundler", "~> 1.17.3"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "minitest", "~> 5.0"
 end
